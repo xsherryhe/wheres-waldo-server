@@ -1,0 +1,17 @@
+Image
+-id
+-file (string of the file name e.g. 'dummy.jpg' in public images)
+-width (integer)
+-height (integer)
+has_many targets
+
+*image srcs can be accessed at '[domain name]/images/[file name]'
+
+Target
+-id
+-name (string)
+-row (integer)
+-col (integer)
+belongs_to image
+
+* users and times
