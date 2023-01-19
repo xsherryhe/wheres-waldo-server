@@ -1,24 +1,5 @@
-# README
+This project is the back-end for a "Where's Waldo?" game application. It is built using the Ruby on Rails framework.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The "Where's Waldo?" project primarily demonstrates integration of a front-end interface with a back-end API.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This project is currently in progress.
