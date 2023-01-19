@@ -5,7 +5,7 @@ Image
 -height (integer)
 has_many targets
 
-*image srcs can be accessed at '[domain name]/images/[file name]'
+*image srcs can be accessed at '[domain name]/image_files/[file name]'
 
 Target
 -id
