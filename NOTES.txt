@@ -4,6 +4,7 @@ Image
 -width (integer)
 -height (integer)
 has_many targets
+has_many games
 
 *image srcs can be accessed at '[domain name]/image_files/[file name]'
 
@@ -13,5 +14,53 @@ Target
 -row (integer)
 -col (integer)
 belongs_to image
+has_many game_targets
 
-* users and times
+Game
+-player (string)
+-completed_at
+-created_at (used to calculate total time)
+-method completion_time to calculate total completion time
+
+-belongs_to image
+-has_many game_targets
+
+method create_game_targets
+game_targets.create(image.targets.map { |target| { target_id: target.id } })
+
+method for completed?
+game.game_targets.found.count == game.game_targets.count
+
+method data
+-game with image and game_targets.include only { target: { except: %i[row column] }, methods: :found_square
+
+actions: 
+-create (with player and completed_at null)
+  -image_id is passed in as a query string param
+  -game.create_game_targets
+  -send back game.data
+-update
+  -if params[selection]
+    -implement show method of targets_controller for the provided target id
+    -if incorrect send back the data
+    -if correct, game.game_targets.find_by(target_id).found!
+      -if still not complete, send back the data
+      -if completed?
+        -fill in completed_at with current time
+        -get all the database records with a completed_at sorted by completion time
+        -if completion time is more than or equal to last place completion time, delete the record
+        -if completion time is less than last place completion time, 
+          -delete the last place completion time
+          -set high_score on response to be true so that the player can fill in a name on the front end
+        -send back the data
+  -else update like normal
+-destroy (called from front end on unmount of game component)
+  -if game is not complete, delete it
+
+GameTarget
+belongs_to game
+belongs_to target
+enum not_found found
+method found_square
+  found? ? [target.row, target.column] : nil
+
