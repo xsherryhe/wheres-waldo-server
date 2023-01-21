@@ -1,5 +1,6 @@
 class Target < ApplicationRecord
   belongs_to :image
+  has_many :game_targets, dependent: :destroy
   validates :name, presence: true
   validates :file, presence: true
   validates :row, presence: true
