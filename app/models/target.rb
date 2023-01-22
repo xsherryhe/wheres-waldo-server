@@ -7,6 +7,10 @@ class Target < ApplicationRecord
   validates :column, presence: true
   validate :in_image
 
+  def correct?(selection_row, selection_column)
+    row == selection_row && column == selection_column
+  end
+
   private
 
   def in_image

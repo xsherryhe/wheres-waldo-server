@@ -47,13 +47,13 @@ actions:
       -if still not complete, send back the data with correct attribute
       -if completed?
         -fill in completed_at with current time
-        -get all the database records with a completed_at sorted by completion time
+        -get all the database records with a completion_time sorted by completion time
         -if completion time is more than or equal to last place completion time, delete the record
         -if completion time is less than last place completion time, 
           -delete the last place completion time
           -set high_score on response to be true so that the player can fill in a name on the front end
         -send back the data with correct attribute
-  -else update like normal
+  -else update like normal with params.require(:game)
 -destroy (called from front end on unmount of game component)
   -if game is not complete, delete it
 
