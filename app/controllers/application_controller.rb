@@ -1,12 +1,15 @@
 class ApplicationController < ActionController::Base
   after_action :send_csrf_token
 
+  def init
+    head :ok
+  end
+
   private
 
   def send_csrf_token
-    cookies['CSRF-TOKEN'] =
-      { value: form_authenticity_token,
-        secure: true,
-        domain: %w[localhost:3001 xsherryhe.github.io] }
+    return unless /localhost|xsherryhe.github.io/ =~ request.origin
+
+    headers['CSRF-TOKEN'] = form_authenticity_token
   end
 end
