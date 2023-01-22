@@ -64,3 +64,8 @@ enum hidden found
 method square
   found? ? [target.row, target.column] : nil
 
+Protecting player name change requests
+-When game goes from not completed to completed and is in high scores,  
+-send a high score token stored in server session, then send the change request with the token
+-Don't allow update of game player on server side without the token
+

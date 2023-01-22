@@ -11,8 +11,8 @@ class Game < ApplicationRecord
     game
   end
 
-  def completed_by_targets?
-    game_targets.found.count == game_targets.count
+  def just_completed?
+    !completed? && game_targets.found.count == game_targets.count
   end
 
   def completed?
@@ -32,6 +32,6 @@ class Game < ApplicationRecord
   end
 
   def as_json(_ = {})
-    super({ only: %i[id completion_time], methods: :targets, include: %i[image] })
+    super(only: %i[id player completion_time], methods: :targets, include: %i[image])
   end
 end
