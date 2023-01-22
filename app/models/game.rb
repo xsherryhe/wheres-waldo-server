@@ -3,6 +3,7 @@ class Game < ApplicationRecord
   has_many :game_targets, dependent: :destroy
 
   scope :completed, -> { where.not(completion_time: nil) }
+  scope :ranked, -> { order(completion_time: :asc, updated_at: :asc) }
 
   def self.create(attrs)
     game = super(attrs)
@@ -22,16 +23,15 @@ class Game < ApplicationRecord
     update(completion_time: (current_time_from_proper_timezone - created_at).round) unless completed?
   end
 
+  def targets
+    game_targets
+      .order(:id)
+      .as_json(only: [],
+               methods: %i[square],
+               include: { target: { except: %i[row column] } })
+  end
+
   def as_json(_ = {})
-    super({ only: %i[id], methods: :completion_time, include:
-      [
-        :image,
-        { game_targets:
-          {
-            only: [],
-            methods: %i[square],
-            include: { target: { except: %i[row column] } }
-          } }
-      ] })
+    super({ only: %i[id completion_time], methods: :targets, include: %i[image] })
   end
 end

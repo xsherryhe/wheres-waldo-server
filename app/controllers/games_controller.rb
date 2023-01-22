@@ -9,7 +9,7 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-    return update_target if params[:selection]
+    return update_target if params[:selection] && params[:target]
   end
 
   private
@@ -27,13 +27,11 @@ class GamesController < ApplicationController
 
   def update_completed
     @game.completed!
+    @game_data = @game.as_json
 
-    @last_game = Game.completed.order(completion_time: :desc, updated_at: :desc).first
-    @current_game = @game.as_json
+    @games = Game.completed.ranked
+    @games[10..].each(&:destroy)
 
-    @last_game.destroy
-    @current_game.merge!(high_score: true) unless @game.destroyed?
-
-    render json: @current_game
+    render json: @game_data.merge(high_score: Game.exists?(@game.id))
   end
 end
