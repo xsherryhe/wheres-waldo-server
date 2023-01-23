@@ -11,6 +11,10 @@ class Game < ApplicationRecord
     game
   end
 
+  def find_target!(target)
+    game_targets.find_by(target:).found!
+  end
+
   def just_completed?
     !completed? && game_targets.found.count == game_targets.count
   end
@@ -24,14 +28,12 @@ class Game < ApplicationRecord
   end
 
   def targets
-    game_targets
-      .order(:id)
-      .as_json(only: [],
-               methods: %i[square],
-               include: { target: { except: %i[row column] } })
+    game_targets.order(:id)
   end
 
-  def as_json(_ = {})
-    super(only: %i[id player completion_time], methods: :targets, include: %i[image])
+  def as_json(options = {})
+    data = super({ only: %i[id player completion_time] }.merge(options))
+    target = options[:target]
+    data.merge(target ? { target: game_targets.find_by(target:).as_json } : {})
   end
 end

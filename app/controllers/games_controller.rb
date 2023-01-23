@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.completed.ranked
+    @games = Image.find(params[:image_id]).ranked_games
     render json: @games
   end
 
@@ -9,12 +9,15 @@ class GamesController < ApplicationController
     return head :unprocessable_entity unless @image
 
     @game = Game.create(image: @image)
-    render json: @game
+    render json: @game, methods: %i[targets], include: %i[image]
   end
 
   def update
     @game = Game.find(params[:id])
     return update_target if params[:selection] && params[:target]
+    return update_player if params[:high_score_token] && (params[:high_score_token] == session[:high_score_token])
+
+    head :unprocessable_entity
   end
 
   private
@@ -24,18 +27,22 @@ class GamesController < ApplicationController
     @row, @column = params[:selection].split(',').map(&:to_i)
     return render json: false unless @target.correct?(@row, @column)
 
-    @game.game_targets.find_by(target: @target).found!
-    return render json: @game unless @game.just_completed?
+    @game.find_target!(@target)
+    return render json: @game, target: @target unless @game.just_completed?
 
     update_completed
   end
 
+  def update_player
+    @game.update(params.require(:game).permit(:player))
+    render json: @game
+  end
+
   def update_completed
     @game.completed!
-    @game_data = @game.as_json
+    @game_data = @game.as_json(target: @target)
 
-    @games = Game.completed.ranked
-    @games[10..].each(&:destroy)
+    @game.image.update_rankings
 
     render json: @game_data.merge(high_score: Game.exists?(@game.id) && generate_high_score_token)
   end
