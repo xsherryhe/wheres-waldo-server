@@ -8,7 +8,7 @@
 
 Image.destroy_all
 
-waldo = Image.create(file: 'waldo.jpg', height: 10, width: 21)
+waldo = Image.create(name: 'Waldo', file: 'waldo.jpg', height: 10, width: 21)
 waldo.targets.create(
   [{ name: 'Waldo', file: 'waldo/waldo.png', row: 2, column: 3 },
    { name: 'Wallo', file: 'waldo/wallo.png', row: 6, column: 7 },
@@ -16,4 +16,16 @@ waldo.targets.create(
    { name: 'Payo', file: 'waldo/payo.png', row: 8, column: 3 },
    { name: 'Saleso', file: 'waldo/saleso.png', row: 0, column: 14 },
    { name: 'Spotto', file: 'waldo/spotto.png', row: 4, column: 11 }]
+)
+
+toy_city = Image.create(name: 'Toy City', file: 'toy-city.png', height: 18, width: 16)
+toy_city.targets.create(
+  [{ name: 'White van', file: 'toy-city/white-van.png', row: 9, column: 0 },
+   { name: 'Cat', file: 'toy-city/cat.png', row: 10, column: 13 },
+   { name: 'Group of three people', file: 'toy-city/group-of-three-people.png', row: 9, column: 4 },
+   { name: 'Roller skate', file: 'toy-city/roller-skate.png', row: 12, column: 13 },
+   { name: 'Blue van with mouse', file: 'toy-city/blue-mouse-van.png', row: 13, column: 9 },
+   { name: 'Apple', file: 'toy-city/apple.png', row: 4, column: 15 },
+   { name: 'Safety pin', file: 'toy-city/safety-pin.png', row: 10, column: 12 },
+   { name: 'Chapel', file: 'toy-city/chapel.png', row: 9, column: 7 }]
 )
