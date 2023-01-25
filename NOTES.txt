@@ -69,7 +69,7 @@ Protecting player name change requests
 -send a high score token stored in server session, then send the change request with the token
 -Don't allow update of game player on server side without the token
 
-// TO DO: Make certain pictures more square by capturing more of background,
-// then standardize sizes on the front end
-
 // TO DO: Hover effect over correct markers to make them semi-transparent when the game is active
+
+// TO DO: Add more pictures -- 4 total? Display in a carousel instead of a grid
+// TO DO: Sub loading word in component for a skeleton screen or spinner
