@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   after_action :send_csrf_token
 
+  rescue_from ActiveRecord::RecordNotFound do
+    head :unprocessable_entity
+  end
+
   def init
     head :ok
   end

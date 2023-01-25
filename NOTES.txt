@@ -71,3 +71,5 @@ Protecting player name change requests
 
 // TO DO: Make certain pictures more square by capturing more of background,
 // then standardize sizes on the front end
+
+// TO DO: Hover effect over correct markers to make them semi-transparent when the game is active

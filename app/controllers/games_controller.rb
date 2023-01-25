@@ -20,6 +20,17 @@ class GamesController < ApplicationController
     head :unprocessable_entity
   end
 
+  def destroy
+    begin
+      @game = Game.find(params[:id])
+      @game&.destroy unless @game&.completed?
+    rescue ActiveRecord::RecordNotFound
+      # Do nothing
+    end
+
+    head :ok
+  end
+
   private
 
   def update_target

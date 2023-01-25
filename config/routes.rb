@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :images, only: %i[index] do
     resources :games, only: %i[index create]
   end
-  resources :games, only: %i[update]
+  resources :games, only: %i[update destroy]
 end
