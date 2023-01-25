@@ -5,8 +5,8 @@ class Game < ApplicationRecord
   scope :completed, -> { where.not(completion_time: nil) }
   scope :ranked, -> { order(completion_time: :asc, updated_at: :asc) }
 
-  def self.create(attrs)
-    game = super(attrs)
+  def self.create_with_targets(attrs = {})
+    game = create(attrs)
     game.game_targets.create(game.image.targets.map { |target| { target_id: target.id } })
     game
   end

@@ -11,6 +11,6 @@ class Image < ApplicationRecord
   end
 
   def update_rankings
-    ranked_games[10..].each(&:destroy)
+    (ranked_games[10..] || []).each(&:destroy)
   end
 end

@@ -5,10 +5,10 @@ class GamesController < ApplicationController
   end
 
   def create
-    @image = Image.find(params[:image])
+    @image = Image.find(params[:image_id])
     return head :unprocessable_entity unless @image
 
-    @game = Game.create(image: @image)
+    @game = Game.create_with_targets(image: @image)
     render json: @game, methods: %i[targets], include: %i[image]
   end
 
