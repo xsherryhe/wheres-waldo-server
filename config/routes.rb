@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'application#init'
   resources :images, only: %i[index] do
-    resources :games, only: %i[index]
+    resources :games, only: %i[index create]
   end
-  resources :games, only: %i[create update]
+  resources :games, only: %i[update]
 end

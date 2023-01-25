@@ -69,3 +69,5 @@ Protecting player name change requests
 -send a high score token stored in server session, then send the change request with the token
 -Don't allow update of game player on server side without the token
 
+// TO DO: Make certain pictures more square by capturing more of background,
+// then standardize sizes on the front end
