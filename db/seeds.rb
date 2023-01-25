@@ -26,6 +26,6 @@ toy_city.targets.create(
    { name: 'Roller skate', file: 'toy-city/roller-skate.png', row: 12, column: 13 },
    { name: 'Blue van with mouse', file: 'toy-city/blue-mouse-van.png', row: 13, column: 9 },
    { name: 'Apple', file: 'toy-city/apple.png', row: 4, column: 15 },
-   { name: 'Safety pin', file: 'toy-city/safety-pin.png', row: 10, column: 12 },
+   { name: 'Safety pin', file: 'toy-city/safety-pin.png', row: 8, column: 12 },
    { name: 'Chapel', file: 'toy-city/chapel.png', row: 9, column: 7 }]
 )
