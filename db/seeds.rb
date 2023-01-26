@@ -29,3 +29,25 @@ toy_city.targets.create(
    { name: 'Safety pin', file: 'toy-city/safety-pin.png', row: 8, column: 12 },
    { name: 'Chapel', file: 'toy-city/chapel.png', row: 9, column: 7 }]
 )
+
+flamingos = Image.create(name: 'Flamingos', file: 'flamingos.jpg', height: 17, width: 15)
+flamingos.targets.create(
+  [{ name: 'Goofy flamingo face', file: 'flamingos/goofy-flamingo-face.png', row: 0, column: 7 },
+   { name: 'TY Tag', file: 'flamingos/ty-tag.png', row: 11, column: 9 },
+   { name: '"Select"', file: 'flamingos/select.png', row: 8, column: 8 },
+   { name: 'Cup', file: 'flamingos/cup.png', row: 12, column: 13 },
+   { name: '$5', file: 'flamingos/5-dollars.png', row: 13, column: 1 },
+   { name: 'Shell', file: 'flamingos/shell.png', row: 3, column: 11 }]
+)
+
+artsy_metropolis = Image.create(name: 'Artsy Metropolis', file: 'artsy-metropolis.jpg', height: 10, width: 14)
+artsy_metropolis.targets.create(
+  [{ name: 'Clock', file: 'artsy-metropolis/clock.png', row: 1, column: 5 },
+   { name: 'Bus', file: 'artsy-metropolis/bus.png', row: 4, column: 11 },
+   { name: 'Umbrella', file: 'artsy-metropolis/umbrella.png', row: 7, column: 4},
+   { name: 'Dog', file: 'artsy-metropolis/dog.png', row: 1, column: 8 },
+   { name: 'Boat', file: 'artsy-metropolis/boat.png', row: 9, column: 6 },
+   { name: 'Carousel', file: 'artsy-metropolis/carousel.png', row: 6, column: 11 },
+   { name: 'Star', file: 'artsy-metropolis/star.png', row: 9, column: 4 },
+   { name: 'Rainbow', file: 'artsy-metropolis/rainbow.png', row: 3, column: 5 }]
+)

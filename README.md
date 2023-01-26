@@ -6,5 +6,7 @@ This project is currently in progress.
 
 Image credits:
 1) WallpaperCave  
-  https://wallpapercave.com/w/wp10091685
-  
+  https://wallpapercave.com/w/wp10091685  
+  https://wallpapercave.com/w/wp7827096  
+  https://wallpapercave.com/w/wp10091679  
+  https://wallpapercave.com/w/wp10091687

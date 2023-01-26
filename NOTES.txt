@@ -69,7 +69,8 @@ Protecting player name change requests
 -send a high score token stored in server session, then send the change request with the token
 -Don't allow update of game player on server side without the token
 
-// TO DO: Hover effect over correct markers to make them semi-transparent when the game is active
-
-// TO DO: Add more pictures -- 4 total? Display in a carousel instead of a grid
-// TO DO: Sub loading word in component for a skeleton screen or spinner
+// TO DO: Display pictures in a carousel instead of a grid
+// TO DO: Sub loading word in component for a skeleton screen (e.g. gray boxes in the place of images) or spinner
+  // Skeleton out the game buttons until the rest of the screen is loaded
+  // Skeleton the high scores
+  // Add a spinner for submitting the selection form and editing the name on high scores
