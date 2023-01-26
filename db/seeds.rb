@@ -33,7 +33,7 @@ toy_city.targets.create(
 flamingos = Image.create(name: 'Flamingos', file: 'flamingos.jpg', height: 17, width: 15)
 flamingos.targets.create(
   [{ name: 'Goofy flamingo face', file: 'flamingos/goofy-flamingo-face.png', row: 0, column: 7 },
-   { name: 'TY Tag', file: 'flamingos/ty-tag.png', row: 11, column: 9 },
+   { name: 'TY tag', file: 'flamingos/ty-tag.png', row: 11, column: 9 },
    { name: '"Select"', file: 'flamingos/select.png', row: 8, column: 8 },
    { name: 'Cup', file: 'flamingos/cup.png', row: 12, column: 13 },
    { name: '$5', file: 'flamingos/5-dollars.png', row: 13, column: 1 },
