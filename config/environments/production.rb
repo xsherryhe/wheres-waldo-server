@@ -90,4 +90,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.session_store :cookie_store, key: '_wheres_waldo_server_session', same_site: :none, secure: true
 end
