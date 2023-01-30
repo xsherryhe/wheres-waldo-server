@@ -68,8 +68,3 @@ Protecting player name change requests
 -When game goes from not completed to completed and is in high scores,  
 -send a high score token stored in server session, then send the change request with the token
 -Don't allow update of game player on server side without the token
-
-
-// TO DO: Uncapitalize the t in Tag
-// TO DO: Display pictures in a carousel instead of a grid
-// TO DO: Header icons
